@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> Faculdade Gama e Souza</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  
+  <p>Consulta Livre</p>
+
+  <ion-toolbar>
+    <ion-searchbar animated placeholder="Termo..." debounce="300" 
+    [(ngModel)]="termo_busca"
+    (ionInput)="busca($event)"
+    (ionCancel)="cancela($event)"
+    ></ion-searchbar>
+  </ion-toolbar>
+
+
+
+
+<ion-list>
+    <ion-card  *ngFor="let item of resultado">
+      <ion-card-header>
+          <ion-card-title text-wrap wrap>{{item.titulo}}</ion-card-title>
+          <ion-icon right style="float: right;" (click)="presentActionSheet(item)" name="settings"></ion-icon>
+      </ion-card-header>
+      <ion-card-content (click)="item.exibe = !item.exibe" on-tap="item.exibe = !item.exibe">
+          <p>Localização: {{item.localizacao}}</p>
+          <p>Tipo de Acervo: {{item.tipo}}</p>
+            <p *ngIf="item.exibe">Imprenta: {{item.localizacao}}</p>
+            <p *ngIf="item.exibe">ISBN: {{item.tipo}}</p>
+      </ion-card-content>
+  </ion-card>
+</ion-list>
+
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+  <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
+
+</ion-content>
