@@ -127,7 +127,7 @@ var HomePage = /** @class */ (function () {
                 {
                     text: 'Compartilhar',
                     icon: 'share-alt',
-                    handler: function () { console.log("Compartilhar clicked " + item.codigo); _this.compartilhar(codigo); }
+                    handler: function () { console.log("Compartilhar clicked " + item.codigo); _this.compartilhar(item.codigo); }
                 },
                 {
                     text: 'Voltar',

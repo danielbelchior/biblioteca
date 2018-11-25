@@ -86,7 +86,7 @@ export class HomePage {
         {
           text: 'Compartilhar',
           icon: 'share-alt',
-          handler: () => { console.log(`Compartilhar clicked ${item.codigo}`); this.compartilhar(codigo) }
+          handler: () => { console.log(`Compartilhar clicked ${item.codigo}`); this.compartilhar(item.codigo) }
         },
         {
           text: 'Voltar',
